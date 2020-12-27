@@ -1,0 +1,26 @@
+body {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+header {
+    background-color: #363A53;
+    color: #F6F6E8;
+    padding: 10px 20px;
+    font-family: "Gill Sans", sans-serif ;
+    letter-spacing: 1px;
+    
+}
+
+footer {
+    background-color: #56678A;
+    height: 90px;
+}
+
+.main {
+    background-image: url("olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 930px;
+    
+    
+} 

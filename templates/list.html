@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block customcss %}
+<link rel="stylesheet" href="{% static 'list.css' %}" type="text/css">
+{% endblock customcss %}
+
+{% block content %}
+<div style="padding: 40px 0;">
+<p>
+        <a href="{% url 'home' %}">home</a>
+    </p>
+{% if error %}
+{{error}}
+{% else %}
+
+<p>"{{searchWords}}"의 검색결과<p>
+    {% for title, pk, book_id, description in objs %}
+
+        <div class="alert" role="alert" style="border:#56678A solid 1px;background-color:#E8E8E8;">
+            <a href="{% url 'detail' pk %}"><b>【제{{book_id}}권】{{ title }}</b></a>
+            {% comment %} <input class="btn btn-primary" type="hidden" name="pk" value="{{pk}}">
+            <button type="submit">詳細</button> {% endcomment %}
+            <p>{{description|safe}}</p>
+        </div>
+
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}

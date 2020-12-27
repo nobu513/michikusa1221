@@ -1,0 +1,11 @@
+# created by virtualenv automatically
+
+myvenv
+db.splite3
+.vscode
+__pycache__
+*.pyc
+.DS_Store
+media 
+local_settings.py
+.env

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="padding: 60px 0;max-width:830px;margin:0 auto;">
+<p>
+        <a href="{% url 'home' %}">home</a>
+    </p>
+        <p style="text-align:center">
+            <a href="{% url 'detail' previous_pk %}">previous</a>
+        </p>
+        <p>　</p>
+
+        <p style="text-align:center">
+            <b>【제{{book_id}}권】{{title}}</b>
+            <p>
+                <p></p>
+
+                <p>{{texts|linebreaksbr}}</p>
+                <p></p>
+                <p style="text-align:center">
+                    <a href="{% url 'detail' next_pk %}">next</a>
+                </p>
+            </div>
+        {% endblock %}
