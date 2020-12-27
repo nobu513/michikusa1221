@@ -39,7 +39,7 @@ else:
     SECRET_KEY = env('SECRET_KEY')
     ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
     STATIC_ROOT = '/usr/share/nginx/html/static' 
-    MEDIA_ROOT '/usr/share/nginx/html/media'
+    MEDIA_ROOT = '/usr/share/nginx/html/media'
 
 
 # Application definition
