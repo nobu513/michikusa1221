@@ -38,7 +38,8 @@ else:
 
     SECRET_KEY = env('SECRET_KEY')
     ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
-
+    STATIC_ROOT = '/usr/share/nginx/html/static' 
+    MEDIA_ROOT '/usr/share/nginx/html/media'
 
 
 # Application definition
@@ -91,11 +92,11 @@ WSGI_APPLICATION = 'michikusa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'mori',
-        'PASSWORD': '1115',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '5432'
     }
 }
 
