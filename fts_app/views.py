@@ -111,15 +111,16 @@ def rankfunc(request):
                 query = SearchQuery(searchWords)
                 rank = SearchRank(F('search_vector'), query)
                 results = DocDData.objects.annotate(rank=rank).filter(search_vector=query).order_by('-rank').values_list('title', 'doc', 'book_id', 'pk')
+                error = ""
                 if not results:
                     error = "No results found."
-                error = ""
+                
                 book_ids = []
                 titles = []
                 docs = []
                 pks = []
                 for i, result in enumerate(results):
-                    if i == 50:
+                    if i == 30:
                         break
                     book_ids.append(result[2])
                     titles.append(result[0])
