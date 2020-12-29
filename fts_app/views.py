@@ -119,8 +119,9 @@ def rankfunc(request):
                 titles = []
                 docs = []
                 pks = []
+
                 for i, result in enumerate(results):
-                    if i == 30:
+                    if i == 25:
                         break
                     book_ids.append(result[2])
                     titles.append(result[0])
