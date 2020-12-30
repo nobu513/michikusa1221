@@ -140,3 +140,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+GOOGLE_ANALYTICS_TRACKING_ID = 'G-CWV8E56HK5'  # ←トラッキングID
