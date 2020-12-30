@@ -203,47 +203,51 @@ def gofunc(request):
             error_msg2 = "error"
             return render(request, 'home.html', {"error_msg2":error_msg2})
         else: 
-            book_id = str(int(request.POST['bookId']))
-            page = str(int(request.POST['page']))
-            obj = DocDData.objects.filter(book_id__contains=book_id, pages__contains=page)
+            try:
+                book_id = str(int(request.POST['bookId']))
+                page = str(int(request.POST['page']))
+                obj = DocDData.objects.filter(book_id__contains=book_id, pages__contains=page)
+                
+                doc = obj[0].doc
+                title = obj[0].title
+                pk = obj[0].pk
+                next_pk = pk + 1
+                if next_pk == 108779:
+                    next_pk = pk
+                previous_pk = pk - 1
+                if previous_pk == 10504:
+                    previous_pk = pk
+                
+                
+                docList = doc.split("\n")
             
-            doc = obj[0].doc
-            title = obj[0].title
-            pk = obj[0].pk
-            next_pk = pk + 1
-            if next_pk == 108779:
-                next_pk = pk
-            previous_pk = pk - 1
-            if previous_pk == 10504:
-                previous_pk = pk
-            
-            
-            docList = doc.split("\n")
-           
-            for doc in docList:
-                if len(doc) <= 33:
-                    
-                    if re.match(r'[0-9]{1,3}\s', doc):
-                        page = re.match(r'[0-9]{1,3}\s', doc).group()
-                        texts += doc.replace(page, "p{} \n\n".format(page))
+                for doc in docList:
+                    if len(doc) <= 33:
+                        
+                        if re.match(r'[0-9]{1,3}\s', doc):
+                            page = re.match(r'[0-9]{1,3}\s', doc).group()
+                            texts += doc.replace(page, "p{} \n\n".format(page))
 
-                    elif re.match(r'[0-9]{1,3}\t', doc):
-                        page = re.match(r'[0-9]{1,3}\t', doc).group()
-                        texts += doc.replace(page, "p{} \n\n".format(page))
-                    
-                    elif re.match(r'[0-9]{1,3}', doc):
-                        page = re.match(r'[0-9]{1,3}', doc).group()
-                        texts += doc.replace(page, "p{} \n\n".format(page))
+                        elif re.match(r'[0-9]{1,3}\t', doc):
+                            page = re.match(r'[0-9]{1,3}\t', doc).group()
+                            texts += doc.replace(page, "p{} \n\n".format(page))
+                        
+                        elif re.match(r'[0-9]{1,3}', doc):
+                            page = re.match(r'[0-9]{1,3}', doc).group()
+                            texts += doc.replace(page, "p{} \n\n".format(page))
+
+                        else:
+                            doc += "\n"
+                            texts += doc
 
                     else:
-                        doc += "\n"
                         texts += doc
-
-                else:
-                    texts += doc
+                    
+                return render(request, "detail.html", {'book_id':book_id, 'title':title, 'texts':texts, 'pk':pk , 'next_pk':next_pk, 'previous_pk':previous_pk})
+            except:
+                error_msg2 = "error"
+                return render(request, 'home.html', {"error_msg":error_msg2})
                 
-            return render(request, "detail.html", {'book_id':book_id, 'title':title, 'texts':texts, 'pk':pk , 'next_pk':next_pk, 'previous_pk':previous_pk})
-            
         return redirect('home') 
 
     return redirect('home')
