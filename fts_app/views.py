@@ -246,7 +246,7 @@ def gofunc(request):
                 return render(request, "detail.html", {'book_id':book_id, 'title':title, 'texts':texts, 'pk':pk , 'next_pk':next_pk, 'previous_pk':previous_pk})
             except:
                 error_msg2 = "error"
-                return render(request, 'home.html', {"error_msg":error_msg2})
+                return render(request, 'home.html', {"error_msg2":error_msg2})
                 
         return redirect('home') 
 
