@@ -111,7 +111,7 @@ def rankfunc(request):
                 query = SearchQuery(searchWords)
                 rank = SearchRank(F('search_vector'), query)
                 
-                results = DocDData.objects.annotate(rank=rank).filter(search_vector=query).order_by('-rank').values_list('title', 'doc', 'book_id', 'pk')[:25]
+                results = DocDData.objects.annotate(rank=rank).filter(search_vector=query).order_by('-rank')[:25].values_list('title', 'doc', 'book_id', 'pk')
                 
                 error = ""
                 if not results:
