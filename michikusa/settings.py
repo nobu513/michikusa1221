@@ -40,6 +40,7 @@ else:
     ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
     STATIC_ROOT = '/usr/share/nginx/html/static' 
     MEDIA_ROOT = '/usr/share/nginx/html/media'
+    GOOGLE_ANALYTICS_TRACKING_ID = 'G-CWV8E56HK5'  # ←トラッキングID
 
 
 # Application definition
@@ -141,4 +142,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-GOOGLE_ANALYTICS_TRACKING_ID = 'G-CWV8E56HK5'  # ←トラッキングID
