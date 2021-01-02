@@ -16,11 +16,16 @@
 
         <link rel="icon" type="image/png" href="{% static 'michikusa_fabicon.png' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-          {% block customcss %}{% endblock customcss %}
-        <title>MICHIKUSA</title>
-          {% if GOOGLE_ANALYTICS_TRACKING_ID %}
-            {% include 'ga.html' %}
-          {% endif %}
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CWV8E56HK5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CWV8E56HK5');
+</script>
+
     </head>
 
     <body>
