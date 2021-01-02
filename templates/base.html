@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
           {% block customcss %}{% endblock customcss %}
         <title>MICHIKUSA</title>
-          {% if michikusa/settings.GOOGLE_ANALYTICS_TRACKING_ID %}
+          {% if settings.GOOGLE_ANALYTICS_TRACKING_ID %}
             {% include 'ga.html' %}
           {% endif %}
     </head>
