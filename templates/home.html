@@ -13,7 +13,7 @@
     <div style="text-align:center; padding-top:120px;">
         <div>
 
-            <form action='{% url 'rank' %}' method='post'>{% csrf_token %}
+            <form action="{% url 'rank' %}" method='post'>{% csrf_token %}
 
                 <p>
                     <input style="width: 210px;" type="text" name="searchWords" placeholder="예) 하나님 심정">
